@@ -1,0 +1,169 @@
+/* Ensure the html and body take up 100% height of the screen */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: skyblue; /* Sky color */
+    overflow: hidden; /* Prevent scrollbars from appearing */
+}
+
+/* Road styling */
+.road {
+    width: 100%;
+    height: 100px;
+    background-color: rgb(194, 178, 128); /* Dusty road color */
+    position: absolute;
+    bottom: 0;
+}
+
+/* Truck container */
+.truck {
+    width: 250px; /* Overall width for truck and flatbed */
+    height: 150px;
+    position: absolute;
+    bottom: 100px; /* Above the road */
+    left: -300px; /* Start off the screen */
+    display: flex;
+    justify-content: flex-start; /* Align items from the start */
+    align-items: flex-end;
+    animation: drive 10s linear infinite; /* Make the truck drive infinitely */
+}
+
+/* Animation to move the truck across the screen */
+@keyframes drive {
+    0% {
+        left: -300px; /* Start off the screen from the left */
+    }
+    100% {
+        left: 100%; /* Move to the right side of the screen */
+    }
+}
+
+/* Flatbed (on the left, flush with the truck body) */
+.flatbed {
+    width: 130px;
+    height: 30px;
+    background-color: brown;
+    position: relative;
+    top: -20px; /* Position it slightly above the wheels */
+}
+
+/* Truck body (in the middle) */
+.truck-body {
+    width: 120px;
+    height: 60px;
+    background-color: blue;
+    border-radius: 5px;
+    position: relative;
+    top: -20px; /* Lift the body above the wheels */
+    margin-left: 0; /* No gap between the flatbed and truck body */
+}
+
+/* Red cabin back on top of the blue truck body */
+.cabin {
+    width: 40px;  /* One-third the width of the truck body */
+    height: 40px; /* Proportional height for the cabin */
+    background-color: red;
+    position: absolute;
+    top: -30px;   /* Position on top of the truck body */
+    left: 10px;   /* Offset from the left */
+    border-radius: 3px;
+}
+
+/* Window inside the red cabin (half the original size) */
+.window {
+    width: 15px;   /* Half of the previous window width */
+    height: 10px;  /* Half of the previous window height */
+    background-color: lightblue; /* Color to represent the window */
+    position: absolute;
+    top: 5px;      /* Position slightly below the top of the cabin */
+    left: 10px;    /* Centered inside the cabin */
+    border-radius: 2px;
+}
+
+/* Truck wheels */
+.truck-wheel {
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0; /* Ensure wheels stay at the bottom */
+}
+
+/* Front left wheel (under flatbed) */
+.front-left-wheel {
+    left: 10px;
+}
+
+/* Front right wheel (under truck body) */
+.front-right-wheel {
+    left: 180px;
+}
+
+/* Back left wheel (under flatbed) */
+.back-left-wheel {
+    left: 60px;
+}
+
+/* Back right wheel (under truck body) */
+.back-right-wheel {
+    left: 230px;
+}
+
+/* Cloud styling */
+.cloud {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.9;
+    font-family: "Times New Roman", Times, serif; /* Use Times New Roman */
+    font-weight: bold;
+    color: blue; /* Set text color to blue */
+    text-align: center;
+    border-radius: 50%;
+    background-color: white;
+    padding: 10px; /* Add padding to create a clear margin inside the cloud */
+    box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.5); /* Blurry outline */
+}
+
+/* Cloud 1 (large with "In You !!!") */
+.cloud1 {
+    top: 20px;
+    right: -200px; /* Start off the screen */
+    width: 220px; /* Bigger cloud to fit the text */
+    height: 110px;
+    font-size: 20px; /* Adjust font size */
+    animation: cloudMove 12s linear infinite; /* Animate the cloud */
+}
+
+/* Cloud 2 (medium with "Believe") */
+.cloud2 {
+    top: 60px;
+    right: -150px; /* Start off the screen */
+    width: 170px;
+    height: 85px;
+    font-size: 18px; /* Adjust font size */
+    animation: cloudMove 15s linear infinite; /* Animate the cloud */
+}
+
+/* Cloud 3 (small with "I") */
+.cloud3 {
+    top: 100px;
+    right: -100px; /* Start off the screen */
+    width: 110px;
+    height: 55px;
+    font-size: 24px; /* Larger font for the single letter */
+    animation: cloudMove 18s linear infinite; /* Animate the cloud */
+}
+
+/* Animation to move the clouds across the screen */
+@keyframes cloudMove {
+    0% {
+        right: -200px; /* Start off-screen to the right */
+    }
+    100% {
+        right: 100%; /* Move to the left side of the screen */
+    }
+}
